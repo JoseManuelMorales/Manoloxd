@@ -1,0 +1,157 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Press Start 2P', cursive;
+    background: 
+        url('min.gif') center/cover no-repeat fixed, /* ← FONDO DE TODA LA PÁGINA */
+        linear-gradient(135deg, #ffb6c1 0%, #ff69b4 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.tarjeta {
+    width: 100%;
+    max-width: 500px;
+    background: rgba(255, 182, 193, 0.15); /* ← SOLO COLOR, SIN IMAGEN */
+    border: 3px solid #ffb6c1;
+    padding: 25px;
+    position: relative;
+    z-index: 1;
+    box-shadow: 
+        0 0 0 2px #ff69b4,
+        4px 4px 0 rgba(255, 105, 180, 0.3);
+    image-rendering: pixelated;
+    backdrop-filter: blur(2px);
+    transition: all 0.3s ease;
+    min-height: 400px;
+}
+
+/* El resto del CSS se mantiene igual */
+.tarjeta::before {
+    content: '';
+    position: absolute;
+    top: -3px;
+    left: -3px;
+    right: -3px;
+    bottom: -3px;
+    border: 1px solid #ff1493;
+    pointer-events: none;
+}
+
+.encabezado {
+    text-align: center;
+    margin-bottom: 25px;
+    padding-bottom: 15px;
+    border-bottom: 2px solid #ff69b4;
+    background: rgba(255, 255, 255, 0.7);
+    margin: -25px -25px 25px -25px;
+    padding: 25px;
+}
+
+.nombre {
+    font-size: 0.9rem;
+    color: #8b4513;
+    margin-bottom: 10px;
+    line-height: 1.4;
+    text-shadow: 1px 1px 0 #ffb6c1;
+}
+
+.contenido {
+    color: #8b4513;
+    background: rgba(255, 255, 255, 0.6);
+    margin: 0 -25px -25px -25px;
+    padding: 0 25px 25px 25px;
+}
+
+.seccion {
+    margin-bottom: 20px;
+    padding: 15px;
+    border: 2px solid #ffb6c1;
+    background: rgba(255, 255, 255, 0.8);
+    position: relative;
+}
+
+.seccion:last-child {
+    margin-bottom: 0;
+}
+
+.seccion h2 {
+    font-size: 0.7rem;
+    color: #ff1493;
+    margin-bottom: 12px;
+    text-shadow: 1px 1px 0 #ffb6c1;
+}
+
+.lista {
+    list-style: none;
+}
+
+.lista li {
+    padding: 8px 0;
+    font-size: 0.6rem;
+    color: #8b4513;
+    line-height: 1.5;
+    border-bottom: 1px dotted #ff69b4;
+    position: relative;
+    padding-left: 20px;
+}
+
+.lista li:last-child {
+    border-bottom: none;
+}
+
+.lista li::before {
+    content: '❀';
+    position: absolute;
+    left: 0;
+    color: #ff1493;
+    font-size: 0.6rem;
+}
+
+.seccion-destacada {
+    border-color: #ff1493;
+    background: rgba(255, 255, 255, 0.9);
+}
+
+.seccion-destacada h2 {
+    color: #ff69b4;
+}
+
+.tarjeta:hover {
+    background: rgba(255, 182, 193, 0.25); /* ← SOLO COLOR EN HOVER */
+    box-shadow: 
+        0 0 0 2px #ff69b4,
+        4px 4px 0 rgba(255, 105, 180, 0.4),
+        0 0 15px rgba(255, 105, 180, 0.3);
+}
+
+@media (max-width: 768px) {
+    .nombre {
+        font-size: 0.8rem;
+    }
+    
+    .seccion h2 {
+        font-size: 0.6rem;
+    }
+    
+    .lista li {
+        font-size: 0.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .nombre {
+        font-size: 0.7rem;
+    }
+    
+    .tarjeta {
+        padding: 20px;
+    }
+}
